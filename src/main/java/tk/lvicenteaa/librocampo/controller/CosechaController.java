@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import tk.lvicenteaa.librocampo.entities.Cosecha;
 import tk.lvicenteaa.librocampo.services.CosechaService;
 
-@RestController("/api/cosecha")
+@RestController
+@RequestMapping("/api/cosecha")
 public class CosechaController {
 
 	private CosechaService cosechaService;

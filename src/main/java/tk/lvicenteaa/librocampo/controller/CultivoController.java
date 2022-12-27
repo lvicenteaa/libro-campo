@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import tk.lvicenteaa.librocampo.entities.Cultivo;
 import tk.lvicenteaa.librocampo.services.CultivoService;
 
-@RestController("/api/cultivo")
+@RestController
+@RequestMapping("/api/cultivo")
 public class CultivoController {
 
 	private CultivoService cultivoService;

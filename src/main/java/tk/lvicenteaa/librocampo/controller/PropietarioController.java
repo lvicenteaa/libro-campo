@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import tk.lvicenteaa.librocampo.entities.Propietario;
 import tk.lvicenteaa.librocampo.services.PropietarioService;
 
-@RestController("/api/propietario")
+@RestController
+@RequestMapping("/api/propietario")
 public class PropietarioController {
 
 	private PropietarioService propietarioService;
