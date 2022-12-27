@@ -21,7 +21,7 @@ public class CalidadService {
 		this.calidadRepository = calidadRepository;
 	}
 	
-	public List<Calidad> mostraTodos(){
+	public List<Calidad> mostrarTodos(){
 		return this.calidadRepository.findAll();
 	}
 	
@@ -57,7 +57,7 @@ public class CalidadService {
 		return ResponseEntity.noContent().build();
 	}
 	
-	public ResponseEntity<Calidad> borrarTodos(Long id){
+	public ResponseEntity<Calidad> borrarTodos(){
 		this.calidadRepository.deleteAll();
 		return ResponseEntity.noContent().build();
 	}

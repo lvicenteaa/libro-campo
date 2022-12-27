@@ -18,7 +18,7 @@ public class CultivoService {
 		this.cultivoRepository = cultivoRepository;
 	}
 
-	public List<Cultivo> buscar() {
+	public List<Cultivo> mostrarTodos() {
 		return this.cultivoRepository.findAll();
 	}
 

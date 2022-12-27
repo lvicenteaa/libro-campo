@@ -15,7 +15,7 @@ public class PlanFertilizanteService {
 		this.planFertilizanteRepository = planFertilizanteRepository;
 	}
 
-	public List<PlanFertilizante> buscar() {
+	public List<PlanFertilizante> mostrarTodos() {
 		return this.planFertilizanteRepository.findAll();
 	}
 

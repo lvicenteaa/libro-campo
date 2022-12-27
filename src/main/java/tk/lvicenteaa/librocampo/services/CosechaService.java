@@ -18,7 +18,7 @@ public class CosechaService {
 		this.cosechaRepository = cosechaRepository;
 	}
 
-	public List<Cosecha> buscar() {
+	public List<Cosecha> mostrarTodos() {
 		return this.cosechaRepository.findAll();
 	}
 
