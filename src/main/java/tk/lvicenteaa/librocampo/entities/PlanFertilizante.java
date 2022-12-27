@@ -40,6 +40,14 @@ public class PlanFertilizante {
 		this.numeroBultos = numeroBultos;
 		this.gramosPalma = gramosPalma;
 	}
+	
+	
+
+	/**
+	 * 
+	 */
+	public PlanFertilizante() {
+	}
 
 	/**
 	 * @return the id

@@ -64,6 +64,14 @@ public class Propietario {
 		this.fechaNacimiento = fechaNacimiento;
 		this.email = email;
 	}
+	
+	
+
+	/**
+	 * 
+	 */
+	public Propietario() {
+	}
 
 	/**
 	 * @return the id

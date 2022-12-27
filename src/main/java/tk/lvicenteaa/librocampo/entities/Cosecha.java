@@ -47,6 +47,14 @@ public class Cosecha {
 		this.pesoTotal = pesoTotal;
 		PrecioVenta = precioVenta;
 	}
+	
+	
+
+	/**
+	 * 
+	 */
+	public Cosecha() {
+	}
 
 	/**
 	 * @return the id

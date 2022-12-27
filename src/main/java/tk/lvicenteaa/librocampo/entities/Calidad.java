@@ -59,6 +59,14 @@ public class Calidad {
 		this.racimosPodridos = racimosPodridos;
 		this.impurezas = impurezas;
 	}
+	
+	
+
+	/**
+	 * 
+	 */
+	public Calidad() {
+	}
 
 	/**
 	 * @return the id

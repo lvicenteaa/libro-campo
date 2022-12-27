@@ -2,6 +2,7 @@ package tk.lvicenteaa.librocampo.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +20,10 @@ import tk.lvicenteaa.librocampo.services.PropietarioService;
 @RequestMapping("/api/propietario")
 public class PropietarioController {
 
+	@Autowired
 	private PropietarioService propietarioService;
 
-	public PropietarioController(PropietarioService propietarioService) {
-		this.propietarioService = propietarioService;
-	}
+	
 
 	@GetMapping
 	public List<Propietario> findAll() {
@@ -36,13 +36,13 @@ public class PropietarioController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Propietario> create(@RequestBody Propietario finca) {
-		return this.propietarioService.crear(finca);
+	public ResponseEntity<Propietario> create(@RequestBody Propietario propietario) {
+		return this.propietarioService.crear(propietario);
 	}
 
 	@PutMapping
-	public ResponseEntity<Propietario> update(@RequestBody Propietario finca) {
-		return this.propietarioService.actualizar(finca);
+	public ResponseEntity<Propietario> update(@RequestBody Propietario propietario) {
+		return this.propietarioService.actualizar(propietario);
 	}
 
 	@DeleteMapping("/{id}")

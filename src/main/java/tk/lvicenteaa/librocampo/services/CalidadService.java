@@ -3,6 +3,7 @@ package tk.lvicenteaa.librocampo.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +15,10 @@ import tk.lvicenteaa.librocampo.repository.CalidadRepository;
 @Service
 public class CalidadService {
 	
+	@Autowired
 	private CalidadRepository calidadRepository;
 	//private final Logger log = LoggerFactory.getLogger(CalidadService.class);
 	
-	public CalidadService(CalidadRepository calidadRepository) {
-		this.calidadRepository = calidadRepository;
-	}
 	
 	public List<Calidad> mostrarTodos(){
 		return this.calidadRepository.findAll();

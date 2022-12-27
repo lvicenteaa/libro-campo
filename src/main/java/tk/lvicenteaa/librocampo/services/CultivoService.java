@@ -3,6 +3,7 @@ package tk.lvicenteaa.librocampo.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +13,10 @@ import tk.lvicenteaa.librocampo.repository.CultivoRepository;
 @Service
 public class CultivoService {
 
+	@Autowired
 	private CultivoRepository cultivoRepository;
 
-	public CultivoService(CultivoRepository cultivoRepository) {
-		this.cultivoRepository = cultivoRepository;
-	}
+	
 
 	public List<Cultivo> mostrarTodos() {
 		return this.cultivoRepository.findAll();

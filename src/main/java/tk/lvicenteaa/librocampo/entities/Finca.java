@@ -48,6 +48,15 @@ public class Finca {
 		this.asociacion = asociacion;
 		this.plano = plano;
 	}
+	
+	
+	
+	
+	/**
+	 * 
+	 */
+	public Finca() {
+	}
 	/**
 	 * @return the id
 	 */
