@@ -1,12 +1,9 @@
 package tk.lvicenteaa.librocampo.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "propietario")
@@ -22,6 +19,9 @@ public class Propietario {
 	private String telefono;
 	private LocalDate fechaNacimiento;
 	private String email;
+
+	@OneToMany
+	private List<Finca> fincas;
 
 	/**
 	 * @param id

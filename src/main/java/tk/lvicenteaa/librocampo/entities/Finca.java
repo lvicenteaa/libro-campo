@@ -1,10 +1,6 @@
 package tk.lvicenteaa.librocampo.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="finca")
@@ -18,6 +14,10 @@ public class Finca {
 	private Double areaPalma;
 	private String asociacion;
 	private String plano;
+
+	@ManyToOne
+	private Propietario propietario;
+
 	/**
 	 * @param id
 	 * @param nombre
@@ -48,10 +48,17 @@ public class Finca {
 		this.asociacion = asociacion;
 		this.plano = plano;
 	}
-	
-	
-	
-	
+
+	public Finca(Long id, String nombre, Double area, Double areaPalma, String asociacion, String plano, Propietario propietario) {
+		this.id = id;
+		this.nombre = nombre;
+		this.area = area;
+		this.areaPalma = areaPalma;
+		this.asociacion = asociacion;
+		this.plano = plano;
+		this.propietario = propietario;
+	}
+
 	/**
 	 * 
 	 */
@@ -130,6 +137,11 @@ public class Finca {
 		this.plano = plano;
 	}
 
-	
+	public Propietario getPropietario() {
+		return propietario;
+	}
 
+	public void setPropietario(Propietario propietario) {
+		this.propietario = propietario;
+	}
 }
