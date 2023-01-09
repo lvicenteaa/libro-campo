@@ -2,11 +2,7 @@ package tk.lvicenteaa.librocampo.entities;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cosecha")
@@ -19,6 +15,9 @@ public class Cosecha {
 	private Integer numeroRacimos;
 	private Double pesoTotal;
 	private Double PrecioVenta;
+
+	@ManyToOne
+	private Cultivo cultivo;
 
 	/**
 	 * @param id
@@ -47,8 +46,17 @@ public class Cosecha {
 		this.pesoTotal = pesoTotal;
 		PrecioVenta = precioVenta;
 	}
-	
-	
+
+	public Cosecha(Long id, LocalDate fecha, Integer numeroRacimos, Double pesoTotal, Double precioVenta, Cultivo cultivo) {
+		this.id = id;
+		this.fecha = fecha;
+		this.numeroRacimos = numeroRacimos;
+		this.pesoTotal = pesoTotal;
+		PrecioVenta = precioVenta;
+		this.cultivo = cultivo;
+	}
+
+
 
 	/**
 	 * 
@@ -126,4 +134,11 @@ public class Cosecha {
 		PrecioVenta = precioVenta;
 	}
 
+	public Cultivo getCultivo() {
+		return cultivo;
+	}
+
+	public void setCultivo(Cultivo cultivo) {
+		this.cultivo = cultivo;
+	}
 }

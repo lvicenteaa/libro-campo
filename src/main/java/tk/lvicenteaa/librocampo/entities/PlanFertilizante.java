@@ -1,10 +1,6 @@
 package tk.lvicenteaa.librocampo.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "planFertilizante")
@@ -16,6 +12,9 @@ public class PlanFertilizante {
 	private String claseFertilizante;
 	private Integer numeroBultos;
 	private Integer gramosPalma;
+
+	@ManyToOne
+	private Cultivo cultivo;
 
 	/**
 	 * @param id
@@ -40,8 +39,14 @@ public class PlanFertilizante {
 		this.numeroBultos = numeroBultos;
 		this.gramosPalma = gramosPalma;
 	}
-	
-	
+
+	public PlanFertilizante(Long id, String claseFertilizante, Integer numeroBultos, Integer gramosPalma, Cultivo cultivo) {
+		this.id = id;
+		this.claseFertilizante = claseFertilizante;
+		this.numeroBultos = numeroBultos;
+		this.gramosPalma = gramosPalma;
+		this.cultivo = cultivo;
+	}
 
 	/**
 	 * 
@@ -104,5 +109,15 @@ public class PlanFertilizante {
 	public void setGramosPalma(Integer gramosPalma) {
 		this.gramosPalma = gramosPalma;
 	}
+
+	public Cultivo getCultivo() {
+		return cultivo;
+	}
+
+	public void setCultivo(Cultivo cultivo) {
+		this.cultivo = cultivo;
+	}
+
+
 
 }

@@ -1,6 +1,9 @@
 package tk.lvicenteaa.librocampo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name="finca")
@@ -17,6 +20,10 @@ public class Finca {
 
 	@ManyToOne
 	private Propietario propietario;
+
+	@JsonIgnore
+	@OneToMany
+	private List<Cultivo> cultivo;
 
 	/**
 	 * @param id
@@ -57,6 +64,17 @@ public class Finca {
 		this.asociacion = asociacion;
 		this.plano = plano;
 		this.propietario = propietario;
+	}
+
+	public Finca(Long id, String nombre, Double area, Double areaPalma, String asociacion, String plano, Propietario propietario, List<Cultivo> cultivo) {
+		this.id = id;
+		this.nombre = nombre;
+		this.area = area;
+		this.areaPalma = areaPalma;
+		this.asociacion = asociacion;
+		this.plano = plano;
+		this.propietario = propietario;
+		this.cultivo = cultivo;
 	}
 
 	/**
@@ -143,5 +161,13 @@ public class Finca {
 
 	public void setPropietario(Propietario propietario) {
 		this.propietario = propietario;
+	}
+
+	public List<Cultivo> getCultivo() {
+		return cultivo;
+	}
+
+	public void setCultivo(List<Cultivo> cultivo) {
+		this.cultivo = cultivo;
 	}
 }

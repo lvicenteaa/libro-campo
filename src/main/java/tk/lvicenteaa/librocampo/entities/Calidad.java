@@ -2,11 +2,7 @@ package tk.lvicenteaa.librocampo.entities;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "calidad")
@@ -21,6 +17,9 @@ public class Calidad {
 	private Integer racimosPedunculoLargo;
 	private Integer racimosPodridos;
 	private String impurezas;
+
+	@ManyToOne
+	private Cultivo cultivo;
 
 	/**
 	 * @param id
@@ -59,8 +58,17 @@ public class Calidad {
 		this.racimosPodridos = racimosPodridos;
 		this.impurezas = impurezas;
 	}
-	
-	
+
+	public Calidad(Long id, LocalDate fecha, Integer racimosVerdes, Integer racimosSobremaduros, Integer racimosPedunculoLargo, Integer racimosPodridos, String impurezas, Cultivo cultivo) {
+		this.id = id;
+		this.fecha = fecha;
+		this.racimosVerdes = racimosVerdes;
+		this.racimosSobremaduros = racimosSobremaduros;
+		this.racimosPedunculoLargo = racimosPedunculoLargo;
+		this.racimosPodridos = racimosPodridos;
+		this.impurezas = impurezas;
+		this.cultivo = cultivo;
+	}
 
 	/**
 	 * 
@@ -166,4 +174,11 @@ public class Calidad {
 		this.impurezas = impurezas;
 	}
 
+	public Cultivo getCultivo() {
+		return cultivo;
+	}
+
+	public void setCultivo(Cultivo cultivo) {
+		this.cultivo = cultivo;
+	}
 }

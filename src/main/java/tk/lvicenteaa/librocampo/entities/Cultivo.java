@@ -1,12 +1,10 @@
 package tk.lvicenteaa.librocampo.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cultivo")
@@ -20,6 +18,20 @@ public class Cultivo {
 	private Double largo;
 	private String mapeo;
 	private LocalDate inicioSiembra;
+
+	@JsonIgnore
+	@OneToMany
+	private List<PlanFertilizante> planFertilizantes;
+	@ManyToOne
+	private Finca finca;
+
+	@JsonIgnore
+	@OneToMany
+	private List<Calidad> calidad;
+
+	@JsonIgnore
+	@OneToMany
+	private List<Cosecha> cosecha;
 
 	/**
 	 * @param nombre
@@ -51,6 +63,19 @@ public class Cultivo {
 		this.largo = largo;
 		this.mapeo = mapeo;
 		this.inicioSiembra = inicioSiembra;
+	}
+
+	public Cultivo(Long id, String nombre, Double ancho, Double largo, String mapeo, LocalDate inicioSiembra, List<PlanFertilizante> planFertilizantes, Finca finca, List<Calidad> calidad, List<Cosecha> cosecha) {
+		this.id = id;
+		this.nombre = nombre;
+		this.ancho = ancho;
+		this.largo = largo;
+		this.mapeo = mapeo;
+		this.inicioSiembra = inicioSiembra;
+		this.planFertilizantes = planFertilizantes;
+		this.finca = finca;
+		this.calidad = calidad;
+		this.cosecha = cosecha;
 	}
 
 	public Cultivo() {
@@ -140,4 +165,35 @@ public class Cultivo {
 		this.inicioSiembra = inicioSiembra;
 	}
 
+	public List<PlanFertilizante> getPlanFertilizantes() {
+		return planFertilizantes;
+	}
+
+	public void setPlanFertilizantes(List<PlanFertilizante> planFertilizantes) {
+		this.planFertilizantes = planFertilizantes;
+	}
+
+	public Finca getFinca() {
+		return finca;
+	}
+
+	public void setFinca(Finca finca) {
+		this.finca = finca;
+	}
+
+	public List<Calidad> getCalidad() {
+		return calidad;
+	}
+
+	public void setCalidad(List<Calidad> calidad) {
+		this.calidad = calidad;
+	}
+
+	public List<Cosecha> getCosecha() {
+		return cosecha;
+	}
+
+	public void setCosecha(List<Cosecha> cosecha) {
+		this.cosecha = cosecha;
+	}
 }

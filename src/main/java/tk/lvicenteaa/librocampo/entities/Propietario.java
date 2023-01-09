@@ -3,6 +3,7 @@ package tk.lvicenteaa.librocampo.entities;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,6 +21,7 @@ public class Propietario {
 	private LocalDate fechaNacimiento;
 	private String email;
 
+	@JsonIgnore
 	@OneToMany
 	private List<Finca> fincas;
 
@@ -64,8 +66,18 @@ public class Propietario {
 		this.fechaNacimiento = fechaNacimiento;
 		this.email = email;
 	}
-	
-	
+
+	public Propietario(Long id, String nombres, String apellidos, String noCedula, String expedicion_Cedula, String telefono, LocalDate fechaNacimiento, String email, List<Finca> fincas) {
+		this.id = id;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.noCedula = noCedula;
+		this.expedicion_Cedula = expedicion_Cedula;
+		this.telefono = telefono;
+		this.fechaNacimiento = fechaNacimiento;
+		this.email = email;
+		this.fincas = fincas;
+	}
 
 	/**
 	 * 
@@ -185,4 +197,11 @@ public class Propietario {
 		this.email = email;
 	}
 
+	public List<Finca> getFincas() {
+		return fincas;
+	}
+
+	public void setFincas(List<Finca> fincas) {
+		this.fincas = fincas;
+	}
 }
